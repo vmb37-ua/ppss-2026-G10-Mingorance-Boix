@@ -1,0 +1,16 @@
+P00-maven1
+├── pom.xml				| El archivo pom de configuración está en el directorio fuente $HOME
+└── src					| Archivos fuente del proyecto
+    ├── main				| Archivos del código principal
+    │   ├── java			| Del lenguaje java 
+    │   │   └── paquete1		| Carpeta del paquete de java "paquete1"
+    │   │       ├── Matricula.java
+    │   │       └── Triangulo.java
+    │   └── resources			| Otros recursos del proyecto
+    └── test				| Ficheros de testing y pruebas
+        └── java			| Del lenguaje java
+            └── paquete1		| De nuevo, en el mismo paquete que los ficheros fuente
+                ├── MatriculaTest.java
+                └── TrianguloTest.java
+
+8 directories, 5 files

@@ -15,3 +15,15 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# IntelliJ
+.idea
+*.iws
+*.iml
+*.ipr
+
+# MacOS
+*.DS_Store
+
+# Windows
+Thumbs.db
