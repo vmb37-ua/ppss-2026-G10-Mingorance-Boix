@@ -1,0 +1,14 @@
+EJERCICIO 2:
+
+- Comportamientos que pertenecen al conjunto S:
+	(1) <aqui debes poner el comportamiento 1>
+	(2) <aqui debes poner el comportamiento 2>
+	(3) <aqui debes poner el comportamiento 3>
+
+- Comportamientos que pertenecen al conjunto P:	
+        (1) <aqui debes poner el comportamiento 1>
+	(2) <aqui debes poner el comportamiento 2>
+
+- Comportamientos que pertenecen a T
+   (1) <aqui debes poner los comportaientos de T>
+   (2) <añade tantas filas como necesites>
