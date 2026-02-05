@@ -1,0 +1,5 @@
+La fase package empaqueta los ficheros .class y los recursos en un .jar
+Los goals de package son maven-jar-plugin:jar
+
+La fase install copia el fichero .jar en el repositorio local
+El goal es maven-install-plugin: install
