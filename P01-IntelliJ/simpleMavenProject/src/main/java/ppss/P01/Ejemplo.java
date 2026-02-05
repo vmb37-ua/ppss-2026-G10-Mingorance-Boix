@@ -8,7 +8,7 @@ public class Ejemplo {
 
         if (mes >= 1  &&  mes <= 12) {
             switch (mes) {
-                case 1: case 3: case 5: case 7: case 10: case 12:
+                case 1: case 3: case 5: case 7: case 10: case 12: case 8:
                     valor_maximo_dia = 31;
                     break;
                 case 4: case 6: case 9: case 11:
