@@ -1,0 +1,15 @@
+RUN CONFIGURATIONS:
+
+
+- Run_CineTest: 
+	(pon aquí el comanndo maven)
+
+- Run_FicheroTextoTest_sin_excluidos: 
+	(pon aquí el comando maven)
+
+- Run_parametrizados: 
+	(pon aquí el comando maven)
+
+- Run_no_parametrizados_o_tablaB: 
+	(pon aquí el comando maven)
+
