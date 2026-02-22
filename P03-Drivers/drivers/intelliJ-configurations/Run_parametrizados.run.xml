@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run_CineTest" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Run_parametrizados" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -11,10 +11,8 @@
           </option>
           <option name="goals">
             <list>
-              <option value="clean" />
-              <option value="jxr:test-jxr" />
-              <option value="surefire-report:report" />
-              <option value="-Dtest=CineTest" />
+              <option value="test" />
+              <option value="-Dgroups=parametrizado" />
             </list>
           </option>
           <option name="multimoduleDir" />

@@ -1,0 +1,15 @@
+RUN CONFIGURATIONS:
+
+
+- Run_CineTest: 
+	clean jxr:test-jxr surefire-report:report -Dtest=CineTest
+
+- Run_FicheroTextoTest_sin_excluidos: 
+	clean jxr:test-jxr surefire-report:report -Dtest=FicheroTextoTest
+
+- Run_parametrizados: 
+	test -Dgroups=parametrizado
+
+- Run_no_parametrizados_o_tablaB: 
+	test "-Dgroups=no_parametrizado, tablaB"
+
