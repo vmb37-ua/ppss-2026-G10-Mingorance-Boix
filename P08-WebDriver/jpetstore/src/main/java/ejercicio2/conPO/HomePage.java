@@ -26,11 +26,11 @@ public class HomePage {
     }
 
     public String getWelcomeMessage() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("WelcomeContent"))).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#jpetstore-content > div.container.py-4.px-3.px-lg-4 > div.text-end.pb-2"))).getText();
     }
 
     public MyAccountPage clickMyAccount() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@class, 'dropdown-toggle')]"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("dropdownMenuButton"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Account"))).click();
         return new MyAccountPage(driver);
     }

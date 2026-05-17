@@ -19,7 +19,7 @@ public class LoginPage {
 
     public String getFormTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//p[contains(text(), 'Please enter your username and password.')]"))).getText();
+                By.xpath("//h5[contains(text(), 'Please enter your username and password.')]"))).getText();
     }
 
     public HomePage login(String username, String password) {

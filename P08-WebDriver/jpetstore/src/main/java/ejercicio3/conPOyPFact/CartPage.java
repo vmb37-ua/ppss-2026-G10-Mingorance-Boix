@@ -7,10 +7,12 @@ import org.openqa.selenium.support.FindBy;
 public class CartPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//table//tr[2]//td[3]") // Columna de descripción
+    // Buscamos dentro del tbody la primera fila (tr[1]) y sacamos su tercera columna (td[3] = Description)
+    @FindBy(xpath = "//tbody[contains(@class, 'table-group-divider')]/tr[1]/td[3]")
     private WebElement firstItemName;
 
-    @FindBy(xpath = "//table//tr[last()]//td[1]") // Fila del total
+    // Buscamos en el pie de tabla (tfoot) la fila de totales, y cogemos la cuarta columna (td[4] = Total Cost)
+    @FindBy(xpath = "//tfoot/tr/td[4]")
     private WebElement totalAmount;
 
     public CartPage(WebDriver driver) {

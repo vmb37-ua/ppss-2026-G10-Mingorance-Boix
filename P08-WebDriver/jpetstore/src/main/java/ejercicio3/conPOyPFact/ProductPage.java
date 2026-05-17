@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//font[b]") // Etiqueta típica de nombres en JPetStore
+    @FindBy(tagName = "h3") // Etiqueta típica de nombres en JPetStore
     private WebElement productName;
 
-    @FindBy(xpath = "//table//tr[last()]//td[1]") // Celda del precio
+    @FindBy(xpath = "//tbody[contains(@class, 'table-group-divider')]//tr[1]//td[4]")
     private WebElement productPrice;
 
-    @FindBy(xpath = "//div[@id='QuickLinks']//img[contains(@src, 'dogs')]")
+    @FindBy(xpath = "//a[contains(@class, 'nav-link') and text()='Dogs']")
     private WebElement linkDogs;
 
     @FindBy(linkText = "Add to Cart")

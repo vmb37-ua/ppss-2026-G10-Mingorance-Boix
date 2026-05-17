@@ -22,6 +22,17 @@ public class TestLogin2 {
         co.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
         co.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
 
+        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        co.setExperimentalOption("prefs", prefs);
+
+        co.addArguments("--incognito");
+        co.addArguments("--disable-features=PasswordLeakDetection");
+        co.addArguments("--disable-popup-blocking");
+        co.addArguments("--disable-save-password-bubble");
+
+
         boolean headless = Boolean.parseBoolean(System.getProperty("chromeHeadless"));
         if (headless) {
             co.addArguments("--headless=new");
@@ -83,6 +94,6 @@ public class TestLogin2 {
         // Assert
         assertEquals("JPetStore Demo", initialTitle);
         assertTrue(formTitle.contains("Please enter your username and password."));
-        assertTrue(errorMsg.contains("Invalid username or password.  Signon failed."));
+        assertTrue(errorMsg.contains("Invalid username or password. Signon failed."));
     }
 }

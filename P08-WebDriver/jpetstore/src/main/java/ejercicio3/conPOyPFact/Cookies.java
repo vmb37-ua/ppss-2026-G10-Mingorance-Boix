@@ -5,6 +5,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.*;
@@ -17,7 +18,14 @@ public class Cookies {
 
     //guarda las cookies en un fichero en el directorio target
     public static void storeCookiesToFile(String urlInicial, String login, String password, String nombre_fichero) {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions co = new ChromeOptions();
+        co.setExperimentalOption("excludeSwitches", java.util.Arrays.asList("enable-automation"));
+        co.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
+        co.addArguments("--incognito");
+        co.addArguments("--disable-notifications");
+        co.addArguments("--disable-save-password-bubble");
+        co.addArguments("--safebrowsing-disable-auto-update");
+        WebDriver driver = new ChromeDriver(co);
 
         try {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

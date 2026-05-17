@@ -28,6 +28,16 @@ public class TestLogin {
         co.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
         co.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
 
+        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        co.setExperimentalOption("prefs", prefs);
+
+        co.addArguments("--incognito");
+        co.addArguments("--disable-features=PasswordLeakDetection");
+        co.addArguments("--disable-popup-blocking");
+        co.addArguments("--disable-save-password-bubble");
+
         boolean headless = Boolean.parseBoolean(System.getProperty("chromeHeadless"));
         if (headless) {
             co.addArguments("--headless=new");
@@ -38,6 +48,7 @@ public class TestLogin {
         }
 
         driver = new ChromeDriver(co);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterEach
@@ -56,7 +67,7 @@ public class TestLogin {
         signInLink.click();
 
         WebElement formTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//p[contains(text(), 'Please enter your username and password.')]")));
+                By.xpath("//h5[contains(text(), 'Please enter your username and password.')]")));
         assertTrue(formTitle.getText().contains("Please enter your username and password."));
 
         WebElement usernameInput = driver.findElement(By.name("username"));
@@ -70,10 +81,10 @@ public class TestLogin {
         WebElement loginButton = driver.findElement(By.xpath("//button[text()='Login']"));
         loginButton.click();
 
-        WebElement welcomeElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("WelcomeContent")));
+        WebElement welcomeElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#jpetstore-content > div.container.py-4.px-3.px-lg-4 > div.text-end.pb-2")));
         String welcomeMessage = welcomeElement.getText();
 
-        WebElement userDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@class, 'dropdown-toggle')]")));
+        WebElement userDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("dropdownMenuButton")));
         userDropdown.click();
 
         WebElement myAccountLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Account")));
@@ -97,7 +108,7 @@ public class TestLogin {
         signInLink.click();
 
         WebElement formTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//p[contains(text(), 'Please enter your username and password.')]")));
+                By.xpath("//h5[contains(text(), 'Please enter your username and password.')]")));
         assertTrue(formTitle.getText().contains("Please enter your username and password."));
 
         WebElement usernameInput = driver.findElement(By.name("username"));
@@ -112,6 +123,6 @@ public class TestLogin {
         loginButton.click();
 
         WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'alert-danger')]")));
-        assertTrue(errorMsg.getText().contains("Invalid username or password.  Signon failed."));
+        assertTrue(errorMsg.getText().contains("Invalid username or password. Signon failed."));
     }
 }

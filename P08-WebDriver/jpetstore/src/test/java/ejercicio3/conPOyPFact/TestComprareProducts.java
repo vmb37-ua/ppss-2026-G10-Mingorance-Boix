@@ -41,6 +41,17 @@ public class TestComprareProducts {
         ChromeOptions co = new ChromeOptions();
         co.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
         co.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
+
+        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        co.setExperimentalOption("prefs", prefs);
+
+        co.addArguments("--incognito");
+        co.addArguments("--disable-features=PasswordLeakDetection");
+        co.addArguments("--disable-popup-blocking");
+        co.addArguments("--disable-save-password-bubble");
+
         driver = new ChromeDriver(co);
 
         Cookies.loadCookiesFromFile(driver, "https://jpetstore.aspectran.com", "cookies.data");
@@ -92,6 +103,6 @@ public class TestComprareProducts {
         assertEquals("Dogs", dogTitle);
         assertNotEquals(catName, dogName);
         assertTrue(itemInCart.contains(catName));
-        assertTrue(totalInCart.contains(catPrice));
+        assertEquals(totalInCart, catPrice);
     }
 }

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CategoryPage {
     private WebDriver driver;
 
-    @FindBy(tagName = "h2")
+    @FindBy(tagName = "h3")
     private WebElement categoryTitle;
 
     @FindBy(xpath = "//table//tr[2]//td[1]//a")

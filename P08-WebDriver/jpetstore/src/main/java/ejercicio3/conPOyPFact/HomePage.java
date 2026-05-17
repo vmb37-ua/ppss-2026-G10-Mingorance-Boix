@@ -14,7 +14,7 @@ public class HomePage {
     @FindBy(linkText = "My Orders")
     private List<WebElement> myOrdersButtonList;
 
-    @FindBy(xpath = "//div[@id='QuickLinks']//img[contains(@src, 'cats')]")
+    @FindBy(linkText = "Cats")
     private WebElement linkCats;
 
     public HomePage(WebDriver driver) {
